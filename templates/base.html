@@ -16,6 +16,436 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>{% block title %}{% endblock title %}</title>
     {% block head %}{% endblock head %}
+
+    <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    
+    font-family: "Raleway", sans-serif;
+}
+
+::-webkit-scrollbar{
+    width: 0px;
+}
+
+a, a:hover{
+    color: #000;
+    text-decoration: none;
+}
+
+.hide{
+    display: none;
+}
+
+/* Styles for the main header */
+.main-header {
+    background-color: #ffffff;
+    color: #000;
+    height: 64px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 0 4px black;
+}
+
+.main-header h1 {
+    margin: 0;
+    font-size: 24px;
+    margin-left: 30px;
+}
+
+.main-header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+    padding-left: 50px;
+    font-weight: 500;
+}
+
+.main-header ul li {
+    margin: 0;
+}
+
+.main-header ul li a {
+    color: #000;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: 150px;
+    transition: background-color 0.3s;
+}
+
+.main-header ul li a:hover {
+    background-color: #acffe5;
+}
+
+.main-header ul:nth-of-type(2) {
+    display: flex;
+    gap: 15px;
+}
+
+.contact{
+    width: auto;
+    height: auto;
+    border: none;
+    margin-right: 30px;
+    border-radius: 10px;
+    width: 150px;
+    height: 40px;
+    background-color: rgb(16, 109, 109);
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+*{
+    text-decoration: none;
+}
+
+.logo{
+    color: rgb(11, 65, 65);
+}
+
+
+.bg{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(16, 109, 109, 0.096);
+}
+
+.bg div{
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Raleway", sans-serif;
+}
+.bg div h1{
+    
+    font-size: 55px;
+    font-weight: bolder;
+}
+.above-h1{
+    width: 100%;
+    height: 30px;
+    background: rgba(11, 65, 65, 0.87);
+    border-radius: 5px;
+    text-align: left;
+    font-family: "Raleway", sans-serif;
+    margin-bottom: 20px;
+    color: white;
+}
+.about{
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background: rgb(238, 236, 236);
+}
+.about-h1{
+    text-align: center;
+}
+.about-p{
+    width:80%;
+    text-align: center;
+}
+
+/* Main Form Container */
+.donate-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 25px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Receiver Dropdown */
+.donation-reci {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    background-color: #fafafa;
+    font-size: 16px;
+    color: #555;
+    box-sizing: border-box;
+}
+
+.donation-reci:focus {
+    outline: none;
+    border-color: #007bff;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+/* Donation Amount Input */
+.donate-amount {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #555;
+    box-sizing: border-box;
+}
+
+.donate-amount:focus {
+    outline: none;
+    border-color: rgb(16, 109, 109);
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+/* Donate Button */
+.donate-bt {
+    width: 100%;
+    padding: 12px;
+    background-color: rgb(10, 58, 58);
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.donate-bt:hover {
+    background-color: #0056b3;
+}
+
+.donate-bt:active {
+    background-color: #004080;
+}
+
+
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  .slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  .box {
+    width: 100%;
+    flex: 0 0 100%;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+  .box h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  .box p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  .slider-controls {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .slider-controls button {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  .slider-controls button:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+
+/* General Styles for Form Section */
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Styling the form container */
+.form_container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+/* Form inputs and buttons */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="submit"] {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Focused input fields */
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #3A6D8C;
+    outline: none;
+    box-shadow: 0 0 5px rgba(58, 109, 140, 0.3);
+}
+
+/* Submit button */
+input[type="submit"] {
+    background-color: #28a745;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* Responsive design for smaller devices */
+@media (max-width: 600px) {
+    .form_container {
+        padding: 20px;
+    }
+
+    input[type="email"],
+    input[type="password"],
+    input[type="submit"] {
+        font-size: 14px;
+    }
+}
+
+
+
+
+
+
+
+.footer {
+    width: 100%;
+    height: 100px;
+    background-color: rgb(10, 58, 58);
+    color: #EAD8B1;
+    padding: 20px 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #EAD8B1;
+}
+
+.footer .links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer .links a {
+    color: #EAD8B1;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer .links a:hover {
+    color: rgb(3, 181, 181);
+}
+
+.footer .social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.footer .social-icons a {
+    text-decoration: none;
+    color: #EAD8B1;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.footer .social-icons a:hover {
+    color: rgb(3, 181, 181);
+}
+
+.footer .copyright {
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+    font-size: 14px;
+}
+
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+.body{
+    min-height: calc(90vh - 64px);
+}
+        
+    </style>
 </head>
 <body>
     <header class="main-header">
