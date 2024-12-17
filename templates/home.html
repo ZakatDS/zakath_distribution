@@ -1,0 +1,35 @@
+{% extends "base.html" %} 
+
+{% load static %}
+
+{% block title %}Zakath calculation{% endblock title %}
+ 
+{% block head %}
+<link rel="stylesheet" href="{% static 'style/calc.css' %}">
+{% endblock head %}
+
+{% block content %}
+    <div class="bg">
+    
+        <div>
+            <div class="above-h1">Well-Structured Zakat System</div>
+            <h1>Zakat Distribution System</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi tempore porro repellat distinctio possimus vero?</p>
+        </div>
+        <div>
+            <img src="{% static "images/charity.png" %}" alt="charity">
+        </div>
+    </div>
+
+    <div class="about">
+        <h1 class="about-h1">ABOUT US</h1>
+        <p class="about-p">{% lorem how_many_paragraphs %}</p>
+    </div>
+      
+    <!-- Font Awesome for social media icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="{% static 'js/calc.js' %}"></script>
+
+    
+    
+{% endblock content %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Goat | zakath calculator{% endblock title %}
+
+{% block head %}
+{% load static%}
+<link rel="stylesheet" href={% static 'style/calc.css' %}>
+<link rel="stylesheet" href={% static 'style/bootstrap.css' %}>
+{% endblock head %}
+
+{% block content %}
+<br><br>
+    <main>
+        <section style="height:auto; margin-bottom:100px;" class="calculator">
+            <h2>Zakat Calculator</h2>
+            <div class="calculator-content">
+                <h3>Enter Your Assets for Zakat Calculation</h3>
+                <form id="zakatForm" method="POST" action="save_livestock_calc">
+                
+                    {% csrf_token %}
+
+                    <label>Goat <input type="number" class="goat" placeholder="0 g" name="btn goat"></label>
+
+                    <label>Cow <input type="number" class="cow" placeholder="0 g" name="btn cow"></label>
+
+                    <label>Camel <input type="number" placeholder="₹ 0" name="btn camel" class="camel"></label>
+
+                    <button class="btn" id="calculateZakat">Calculate Zakat</button>
+                    <button class="btn" id="submitZakat" style="display: none;">Submit</button>
+
+                    <input type="text" name="goat_zakath" id="totelGoatInput"  value="" class='hide'>
+                    <input type="text" name="cow_zakath" id="totelCowInput"  value="" class='hide'>
+                    <input type="text" name="camel_zakath" id="totelCamelInput"  value="" class='hide'>
+                </form>
+                <p id='p1' class='p hide'>Zakat On Your Goat: <b id='totelGoat'></b></p>
+                <p id='p2' class='p hide'>Zakat On Your Cows: <b id='totelCow'></b></p>
+                <p id='p3' class='p hide'>Zakat On Your Camels: <b id='totelCamel'></b></p>
+            </div>
+        </section>
+    </main>
+    <br><br>
+
+
+    <script src="{% static 'js/live_calc.js' %}"></script>
+
+{% endblock content %}

@@ -1,0 +1,21 @@
+<head>
+    <style>
+        *{
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+
+
+<div style="background-color: rgb(5, 39, 39); padding: 15px; border-radius: 10px; color: white; display: flex; flex-direction: column; align-items: center;" class="main">
+    <h2 style="margin: 0; padding: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px; background-color: rgb(0, 0, 0)); color: #ffffff;">Verify Email</h2>
+    <div style="margin: 0; padding: 15px; background-color: rgb(10, 58, 58); display: flex; flex-direction: column; align-items: center;">
+        <p>Hi {{ user.name }},</p>
+        <p>You created an account on Zakat Distribution System, you need to verify your email. Please click on the button below to verify your email.</p>
+        <a href="" style="border: 0; color: #ffffff; background-color:rgb(33, 123, 146); padding: 15px; font-weight: bold; text-decoration: none; border-radius: 5px;">
+            Verify Email
+        </a>
+        <p style="margin-top: 40px;">Or you can copy the link below to your browser</p>
+        <p>request.scheme://domainverify-email-confirm' uidb64=uid token=token</p>
+        <p>ZDS Dev Team</p>
+    </div>

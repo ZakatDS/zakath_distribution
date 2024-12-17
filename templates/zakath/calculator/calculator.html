@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Goat | zakath calculator{% endblock title %}
+
+{% block head %}
+{% load static%}
+<link rel="stylesheet" href={% static 'style/calc.css' %}>
+{% endblock head %}
+
+{% block content %}
+<br><br>
+    <main>
+        <section style="height:auto; margin-bottom:100px;" class="calculator">
+            <h2>Zakat Calculator</h2>
+            <div class="calculator-content">
+                <h3>Enter Your Assets for Zakat Calculation</h3>
+                <form id="zakatForm" method="POST" action="save_calculation">
+                
+                    {% csrf_token %}
+
+                    <label>Gold <input type="number" class="gold" placeholder="0 g" name="Gold"></label>
+
+                    <label>Silver <input type="number" class="silver" placeholder="0 g" name="Silver"></label>
+
+                    <label>Cash, Deposites in Bank, Given Loans andShares and Investments <input type="number" placeholder="₹ 0" name="Cash"></label>
+
+                    {% comment %} <label>Given Loan and Business Shares and Investments <input type="number" placeholder="₹ 0" name="Given"></label> {% endcomment %}
+
+                    <label>Business goods <input type="number" placeholder="₹ 0" name="goods"></label>
+
+                    <label>Artifcial Irrigations <input type="number" class="ai" placeholder="₹ 0" name="Ai"></label>
+
+                    <label>Natural Irrigations <input type="number" class="ni" placeholder="₹ 0" name="NI"></label>
+
+                    <label>Treasure and minerals <input type="number" class="tm" placeholder="₹ 0" name="tresure"></label>
+
+                    <button class="btn" id="calculateZakat">Calculate Zakat</button>
+                    <button class="btn" id="submitZakat" style="display: none;">Submit</button>
+
+                    <input type="text" name="asset" id="totelAssetInput"  value="" class='hide'>
+                    <input type="text" name="zakath" id="zakatAmountInput" value="" class='hide'>
+                </form>
+                <div class="result" id="resultBox">Total Zakat: ₹ <b id="zakatAmount">0.00</b> <br> Out of Totel Asset ₹ <b id="totelAsset">0.00</b></div>
+            </div>
+        </section>
+    </main>
+    <br><br>
+
+
+    <script src="{% static 'js/calc.js' %}"></script>
+
+{% endblock content %}

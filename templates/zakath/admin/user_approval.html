@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %} user Approval | Zakath calculation {% endblock title %}
+
+{% block content %}
+<h2 style="text-align: center; margin-top: 20px; color: #089E8AFF;">User Approval Page</h2>
+<table class="table table-bordered table-hover" style="width: 90%; margin: 20px auto; border-collapse: collapse; background-color: #fff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 8px; overflow: hidden;">
+    <thead class="table-muted" style="background-color: #6c757d; color: #fff;">
+      <tr class='table-active' style="background-color: #e9ecef; font-weight: bold;">
+        <th scope="col" style="padding: 12px 15px; border: 1px solid #dee2e6; text-align: center;">ID</th>
+        <th scope="col" style="padding: 12px 15px; border: 1px solid #dee2e6; text-align: center;">Name</th>
+        <th scope="col" style="padding: 12px 15px; border: 1px solid #dee2e6; text-align: center;">Email</th>
+        <th scope="col" style="padding: 12px 15px; border: 1px solid #dee2e6; text-align: center;">Phone No.</th>
+        <th scope="col" style="padding: 12px 15px; border: 1px solid #dee2e6; text-align: center;">Mahal</th>
+        <th scope="col" style="padding: 12px 15px; border: 1px solid #dee2e6; text-align: center;">Address</th>
+        <th scope="col" style="padding: 12px 15px; border: 1px solid #dee2e6; text-align: center;">Verify</th>
+        <th scope="col" style="padding: 12px 15px; border: 1px solid #dee2e6; text-align: center;">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for user in non_verified_users %}
+      <tr style="border: 1px solid #dee2e6; text-align: center;">
+            <td style="padding: 12px 15px;">{{user.id}}</td>
+            <td style="padding: 12px 15px;">{{user.name}}</td>
+            <td style="padding: 12px 15px;">{{user.email}}</td>
+            <td style="padding: 12px 15px;">{{user.phone_no}}</td>
+            <td style="padding: 12px 15px;">{{user.mahal}}</td>
+            <td style="padding: 12px 15px;">{{user.address}}</td>
+            <td><a href="{% url 'verify' user.id %}" class="btn btn-success" style="display: inline-block; padding: 8px 12px; font-size: 14px; font-weight: bold; text-decoration: none; text-align: center; border-radius: 4px; background-color: #28a745; color: #fff; transition: background-color 0.3s ease;">Approve</a></td>
+            <td><a href="{% url 'delete' user.id %}" class="btn btn-danger" style="display: inline-block; padding: 8px 12px; font-size: 14px; font-weight: bold; text-decoration: none; text-align: center; border-radius: 4px; background-color: #dc3545; color: #fff; transition: background-color 0.3s ease;">Delete</a></td>
+      </tr>
+        {% empty %}
+      <td colspan="8" class="no-data" style="text-align: center; padding: 20px; font-size: 18px; color: #6c757d;">No data available</td>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %})

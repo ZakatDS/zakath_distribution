@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Dashboard | zakath calculation{% endblock title %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static "style/dashboard.css" %}">
+{% endblock head %}
+
+{% block content %}
+
+{% if req.user.place is not '' %}
+
+
+{% if data %}
+<div class="receivers">
+    <a href="#" class="previous round" id="prev">&#8249;</a>
+    <a href="#" class="next round" id="next">&#8250;</a>
+    {% for data in data %}
+    <div class="receiver">
+        <p class="name">{{data.name}} </p>
+        <p class="email">{{data.email}} </p>
+        <p class="phone_no">{{data.phone_no}} </p>
+        {% if data.is_verified %}
+        <p class="btn btn-success">Is Approved</p>
+        {% else %}
+        <p class="btn btn-danger">Is Not Approved</p>
+        {% endif %}
+        <div class="address">
+            {% if data.address != ''%}
+            <p class="address"><b>Address: </b><br>{{data.address}} </p>
+            {% else %}
+            <p class="address"><b>Address Not Given</b></p>
+            {% endif %}
+            <p class="mahal"><b>Place: </b><br>{{data.place}} </p>
+        </div>
+        <a id="seeDetails" class="btn btn-success" href="{% url "donate" user_id=data.pk %}">Donate</a>
+    </div>
+    
+    {% endfor %}
+</div>
+
+{% else %}
+<p style="text-align: center;">No receiver data available.</p>
+{% endif %}
+
+
+
+{% else %}
+
+<p>Add a location to proceed.</p>
+<a href="{% url "add_location" %}" class="button">Add Location</a>
+
+{% endif %}
+ <hr>
+
+
+
+<script src="{% static "js/dashboard.js" %}"></script>
+{% endblock content %}

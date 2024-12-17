@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Details Form</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 20px; background-color: #f9f9f9;">
+
+    <h2 style="text-align: center; color: #333;">Bank Details Form</h2>
+    <form
+     style="max-width: 400px; margin: auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);"
+     action="" method="POST">
+        {% csrf_token %}
+       
+        <!-- Bank Selection -->
+        <label for="bank" style="display: block; margin-bottom: 8px; font-weight: bold;">Select Bank:</label>
+        <input type="text" name="bankName" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
+
+       
+        <!-- Account Number -->
+        <label for="accountNumber" style="display: block; margin-bottom: 8px; font-weight: bold;">Account Number:</label>
+        <input type="text" id="accountNumber" name="accountNumber" placeholder="Enter Account Number" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
+       
+        <!-- IFSC Code -->
+        <label for="ifscCode" style="display: block; margin-bottom: 8px; font-weight: bold;">IFSC Code:</label>
+        <input type="text" id="ifscCode" name="ifscCode" placeholder="Enter IFSC Code" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
+       
+        <!-- Account Holder Name -->
+        <label for="UPI_ID" style="display: block; margin-bottom: 8px; font-weight: bold;">UPI ID:</label>
+        <input type="text" id="UPI_ID" name="UPI_ID" placeholder="Enter Account Number" style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 4px;">
+
+
+       
+        <!-- Submit Button -->
+        <button type="submit" style="width: 100%; padding: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer;">
+            Submit
+        </button>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+{% load static %} 
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="{% static "images/logo.jpg " %}" />
+
+    <link rel="stylesheet" href="{% static "style/style.css " %}">
+    <link rel="stylesheet" href="{% static "style/bootstrap.css " %}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>{% block title %}{% endblock title %}</title>
+    {% block head %}{% endblock head %}
+</head>
+<body>
+    <header class="main-header">
+        <h1><a href="{% url "home" %}" class="logo">Zakath DS</a> </h1>
+        <ul>
+            {% if request.user.is_authenticated %}
+                {% if request.user.is_email_verified is False %}
+                    <li><a href="{% url "verify-email" %}">Verify Email</a></li>
+                    <li><a href="{% url "signout" %}">Log Out</a></li>
+                {% else %}
+                    <li><a href="{% url "signout" %}">Log Out</a></li>
+                {% endif %}
+                    <li><a href="{% url "livestock_calc" %}">Livestock Zakath</a></li>
+                    <li><a href="https://saafonlive.com/hackathon/event/">Event</a></li>
+                {% else %}
+                    <li><a href="{% url "signin" %}">Log In</a></li>
+                    <li><a href="{% url "register" %}">Sign Up</a></li>
+                {% endif %}
+                    {% if request.user.is_receiver %}
+                    <li><a href="{% url "bankData" %}">Add Bank Data</a></li>
+                {% endif %}
+                    <li><a href="{% url "calculator" %}">Calculator</a></li>
+                    {% if user.is_donor or user.is_superuser %}
+                    
+                    <li><a href="{% url "dashboard" %}">Dashboard</a></li>
+                    {% endif %}
+        </ul>
+
+        {% if request.user.is_staff %}
+        <ul>
+            <li><a href="{% url "user_approval" %}">Receiver Approval</a></li>
+        </ul>
+        {% endif %}
+
+        <a style="text-decoration: none; color: #fff;" href="https://saafonlive.com/hackathon/contact/"><button class="contact">Get in touch</button></a>
+    </header>
+    
+    <div class="body">
+        {% block content %}{% endblock content %}
+    </div>
+
+    <footer class="footer">
+        <div class="logo">Zakat Distribution System</div>
+        
+        <div class="links">
+            <a href="#">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+
+        <div class="social-icons">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+        </div>
+
+        <div class="copyright">
+            &copy; 2024 Zakat Distribution System. All Rights Reserved.
+        </div>
+    </footer>
+</body>
+</html>

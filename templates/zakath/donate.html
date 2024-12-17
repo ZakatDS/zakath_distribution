@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}{% endblock title %}
+
+{% block content %} 
+
+{% if receiver.acc_no %}
+
+<div style="max-width: 400px; margin: auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    <label for="" style="display: block; font-size: 16px; font-weight: bold; color: #0d4239; margin-bottom: 10px;">
+        Name: {{ receiver.name }}
+    </label>
+    <label for="" style="display: block; font-size: 16px; font-weight: bold; color: #0d4239; margin-bottom: 10px;">
+        Account Number: {{ receiver.acc_no }}
+    </label>
+    <label for="" style="display: block; font-size: 16px; font-weight: bold; color: #0d4239; margin-bottom: 10px;">
+        IFSC Code: {{ receiver.IFSC_code }}
+    </label>
+    <label for="" style="display: block; font-size: 16px; font-weight: bold; color: #0d4239; margin-bottom: 10px;">
+        UPI ID: {{ receiver.UPI_ID }}
+    </label>
+</div>
+
+
+{% else %}
+
+No bank data associated with this user. 
+
+{% endif %}
+
+{% endblock content %}
