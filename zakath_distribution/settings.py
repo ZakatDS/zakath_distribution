@@ -181,7 +181,7 @@ MESSAGE_TAGS = {
 
 
 # whitenoise
-STATIC_URL = 'static/'
+STATIC_URL = 'https://zakath-distribution.onrender.com/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
