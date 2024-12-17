@@ -92,6 +92,7 @@ WSGI_APPLICATION = 'zakath_distribution.wsgi.application'
 
 import dj_database_url
 
+WSGI_APPLICATION = 'api.wsgi.app'
 
 
 # DATABASES = {
