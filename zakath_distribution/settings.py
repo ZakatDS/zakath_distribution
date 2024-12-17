@@ -33,7 +33,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     ".now.sh",
-    "https://zakath-distribution.onrender.com"
+    "zakath-distribution.onrender.com"
 ]
 
 
