@@ -32,8 +32,8 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '.vercel.app',
-    ".now.sh"
+    ".now.sh",
+    "https://zakath-distribution.onrender.com"
 ]
 
 
